@@ -1,0 +1,191 @@
+.sidebar {
+  width: 208px;
+  flex: none;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 14px 10px 10px;
+  overflow-y: auto;
+  background: var(--surface);
+  border-right: 1px solid var(--border);
+}
+
+.sidebar__brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 2px 6px 14px;
+  font-size: 15px;
+  font-weight: 650;
+  color: var(--text);
+}
+
+.sidebar__logo {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  color: var(--accent);
+  background: var(--accent-soft);
+  border: 1px solid var(--accent-border);
+  border-radius: 8px;
+}
+
+.sidebar__logo svg {
+  width: 15px;
+  height: 15px;
+}
+
+/* ----- 연도 이동 ----- */
+.sidebar__year {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 4px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.sidebar__year-label {
+  font-size: 13px;
+  font-weight: 600;
+  font-variant-numeric: tabular-nums;
+}
+
+/* 앱 공통 아이콘 버튼 */
+.icon-btn {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.icon-btn:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.icon-btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 1px;
+}
+
+.icon-btn svg {
+  width: 16px;
+  height: 16px;
+}
+
+/* ----- 월 목록 ----- */
+.sidebar__section-label {
+  display: flex;
+  justify-content: space-between;
+  padding: 14px 10px 4px;
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-faint);
+}
+
+.sidebar__months {
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.sidebar__month {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 32px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+  text-align: left;
+}
+
+.sidebar__month:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.sidebar__month:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -2px;
+}
+
+.sidebar__month.is-active {
+  color: var(--text);
+  font-weight: 600;
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.sidebar__month-total {
+  font-size: 12px;
+  font-weight: 400;
+  color: var(--text-faint);
+  font-variant-numeric: tabular-nums;
+}
+
+.sidebar__month.is-active .sidebar__month-total {
+  color: var(--expense);
+}
+
+/* ----- 로그아웃 ----- */
+.sidebar__logout {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  height: 32px;
+  margin-top: auto;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 13px;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.sidebar__logout:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.sidebar__logout svg {
+  width: 15px;
+  height: 15px;
+}
+
+@media (max-width: 760px) {
+  .sidebar {
+    width: 176px;
+  }
+}
+
+/* 창 높이가 낮을 때는 월 목록을 촘촘하게 */
+@media (max-height: 560px) {
+  .sidebar__brand {
+    padding-bottom: 10px;
+  }
+
+  .sidebar__section-label {
+    padding-top: 10px;
+  }
+
+  .sidebar__month,
+  .sidebar__logout {
+    height: 27px;
+  }
+}

@@ -1,0 +1,291 @@
+.composer {
+  width: 100%;
+  max-width: 720px;
+  margin: 0 auto;
+}
+
+.composer__box {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  box-shadow: 0 10px 30px -10px rgba(0, 0, 0, 0.6);
+  transition: border-color 0.15s;
+}
+
+.composer__box:focus-within {
+  border-color: var(--border-strong);
+}
+
+.composer__box.is-editing {
+  border-color: var(--accent-border);
+}
+
+/* ----- 수정 중 표시줄 ----- */
+.composer__edit-bar {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 7px 8px 7px 14px;
+  font-size: 12px;
+  color: var(--text-muted);
+  border-bottom: 1px solid var(--border);
+}
+
+.composer__edit-bar > svg {
+  flex: none;
+  width: 13px;
+  height: 13px;
+  color: var(--accent);
+}
+
+.composer__edit-text {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.composer__edit-text b {
+  font-weight: 600;
+  color: var(--text);
+}
+
+.composer__edit-cancel {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  height: 24px;
+  padding: 0 8px;
+  font: inherit;
+  font-size: 12px;
+  color: var(--text-muted);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.composer__edit-cancel:hover {
+  color: var(--text);
+  background: var(--hover);
+}
+
+.composer__edit-cancel svg {
+  width: 12px;
+  height: 12px;
+}
+
+/* ----- 입력 줄: [지출|수입] 항목 / 금액 원 (↑) ----- */
+.composer__row {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 8px;
+}
+
+.segmented {
+  display: flex;
+  flex: none;
+  padding: 3px;
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 10px;
+}
+
+.segmented__btn {
+  height: 28px;
+  padding: 0 10px;
+  font: inherit;
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-faint);
+  background: transparent;
+  border: 0;
+  border-radius: 7px;
+  cursor: pointer;
+}
+
+.segmented__btn:hover {
+  color: var(--text-muted);
+}
+
+.segmented__btn:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: -1px;
+}
+
+.segmented__btn--expense[aria-pressed='true'] {
+  color: var(--expense);
+  background: var(--expense-soft);
+}
+
+.segmented__btn--income[aria-pressed='true'] {
+  color: var(--income);
+  background: var(--income-soft);
+}
+
+.composer__input {
+  width: 100%;
+  height: 36px;
+  padding: 0 6px;
+  font: inherit;
+  font-size: 14px;
+  color: var(--text);
+  background: transparent;
+  border: 0;
+  border-radius: 6px;
+  outline: none;
+}
+
+.composer__input::placeholder {
+  color: var(--text-faint);
+}
+
+.composer__input[aria-invalid='true'] {
+  box-shadow: inset 0 -2px 0 var(--danger);
+}
+
+.composer__name {
+  flex: 1;
+  min-width: 0;
+}
+
+.composer__slash {
+  flex: none;
+  font-size: 18px;
+  font-weight: 300;
+  color: var(--border-strong);
+}
+
+.composer__amount {
+  display: flex;
+  flex: none;
+  align-items: center;
+  width: 150px;
+}
+
+.composer__amount .composer__input {
+  text-align: right;
+  font-variant-numeric: tabular-nums;
+}
+
+.composer__unit {
+  flex: none;
+  padding: 0 4px 0 2px;
+  font-size: 13px;
+  color: var(--text-muted);
+}
+
+.composer__send {
+  width: 34px;
+  height: 34px;
+  flex: none;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  color: var(--text-faint);
+  background: var(--surface-2);
+  border: 0;
+  border-radius: 10px;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.composer__send.is-ready {
+  color: var(--on-accent);
+  background: var(--accent);
+}
+
+.composer__send.is-ready:hover {
+  background: var(--accent-hover);
+}
+
+.composer__send:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--accent-ring);
+}
+
+.composer__send svg {
+  width: 17px;
+  height: 17px;
+}
+
+/* ----- 아래 안내줄 ----- */
+.composer__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  min-height: 18px;
+  padding: 6px 6px 0;
+  font-size: 11.5px;
+  color: var(--text-faint);
+}
+
+.composer__type {
+  font-weight: 600;
+}
+
+.composer__type--income {
+  color: var(--income);
+}
+
+.composer__type--expense {
+  color: var(--expense);
+}
+
+.composer__keys {
+  flex: none;
+}
+
+.composer__keys kbd {
+  padding: 1px 5px;
+  font-family: inherit;
+  font-size: 10.5px;
+  color: var(--text-muted);
+  background: var(--surface-2);
+  border: 1px solid var(--border);
+  border-radius: 4px;
+}
+
+.composer__error {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  color: var(--danger);
+  animation: composer-shake 0.32s ease-in-out;
+}
+
+.composer__error svg {
+  width: 13px;
+  height: 13px;
+}
+
+@keyframes composer-shake {
+  0%,
+  100% {
+    transform: translateX(0);
+  }
+  25%,
+  75% {
+    transform: translateX(-3px);
+  }
+  50% {
+    transform: translateX(3px);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .composer__error {
+    animation: none;
+  }
+}
+
+@media (max-width: 760px) {
+  .composer__amount {
+    width: 120px;
+  }
+}

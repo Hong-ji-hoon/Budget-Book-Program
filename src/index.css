@@ -1,0 +1,53 @@
+/* ===== 테마 색상 (앱 전체에서 공통으로 사용) ===== */
+:root {
+  color-scheme: dark;
+
+  --bg: #0d0e10;
+  --surface: #151719;
+  --surface-2: #1b1e21;
+  --border: #272a2f;
+  --border-strong: #363a40;
+  --hover: rgba(255, 255, 255, 0.06);
+  --grid: rgba(255, 255, 255, 0.035);
+
+  --text: #ececee;
+  --text-muted: #8d929a;
+  --text-faint: #5b6067;
+
+  --accent: #3ecf8e;
+  --accent-hover: #5bdba1;
+  --accent-soft: rgba(62, 207, 142, 0.12);
+  --accent-border: rgba(62, 207, 142, 0.28);
+  --accent-ring: rgba(62, 207, 142, 0.25);
+  --on-accent: #062b19;
+
+  --danger: #f2716b;
+
+  --income: #3ecf8e;
+  --income-soft: rgba(62, 207, 142, 0.14);
+  --expense: #f08a7e;
+  --expense-soft: rgba(240, 138, 126, 0.14);
+
+  font-family: system-ui, -apple-system, 'Segoe UI', 'Malgun Gothic', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+}
+
+body {
+  background: var(--bg);
+  color: var(--text);
+}

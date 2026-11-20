@@ -1,0 +1,54 @@
+{
+  "name": "budget_book",
+  "productName": "가계부",
+  "description": "개인용 가계부 데스크톱 앱",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "app": "vite build && electron .",
+    "app:dev": "node scripts/electron-dev.mjs",
+    "exe": "vite build && electron-builder --win"
+  },
+  "build": {
+    "appId": "com.budgetbook.app",
+    "executableName": "budget_book",
+    "directories": {
+      "output": "release"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*",
+      "package.json"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "electron/icon.png"
+    },
+    "nsis": {
+      "oneClick": false,
+      "perMachine": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "가계부",
+      "artifactName": "budget_book-setup-${version}.${ext}"
+    }
+  },
+  "devDependencies": {
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "electron": "^45.4.1",
+    "electron-builder": "^26.18.0",
+    "oxlint": "^1.90.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vite": "^8.3.6"
+  }
+}
